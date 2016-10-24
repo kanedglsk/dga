@@ -1,0 +1,10 @@
+Package: dga
+Type: Package
+Title: Simple Wrapper For Getting Dota Matches From A Specific Player
+Version: 0.1
+Date: 2016-10-24
+Author: Shikun Li
+Maintainer: Shikun Li <kanedglsk@gmail.com>
+Description: More about what it does (maybe more than one line)
+License: MIT
+LazyData: TRUE
