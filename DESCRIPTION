@@ -5,6 +5,9 @@ Version: 0.1
 Date: 2016-10-24
 Author: Shikun Li
 Maintainer: Shikun Li <kanedglsk@gmail.com>
-Description: More about what it does (maybe more than one line)
+Description: An R package for getting Dota 2 matches data
 License: MIT
 LazyData: TRUE
+Imports: httr,
+         jsonlite,
+         dplyr

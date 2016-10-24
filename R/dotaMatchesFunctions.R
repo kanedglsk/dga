@@ -1,6 +1,9 @@
 #' @title Get history of all matches with 32bit Steam ID
 #' @param accountId 32bit Steam ID
 #' @param apiKey A api key string from https://steamcommunity.com/dev/apikey
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
 #' @return data.frame of match records
 #' @export
 GetMatchHistoryAll <- function(accountId, apiKey) {
