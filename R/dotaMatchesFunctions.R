@@ -7,9 +7,15 @@
 #' @return data.frame of match records
 #' @export
 GetMatchHistoryAll <- function(accountId, apiKey) {
+  if (missing(accountId)) {
+    stop("accountId must be provided.")
+  }
+  if (missing(apiKey)) {
+    stop("apiKey must be provided.")
+  }
   matchList <- list()
   matchRESTURL <- sprintf("https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?account_id=%s&key=%s",
-                          "67723037", apiKey)
+                          accountId, apiKey)
   JSONResult <- GET(matchRESTURL)
   resultList <- httr::content(JSONResult)
   matchList <- c(matchList, resultList$result$matches)
@@ -19,7 +25,7 @@ GetMatchHistoryAll <- function(accountId, apiKey) {
     lastEntry <- length(resultList$result$matches)
     lastMatchId <- resultList$result$matches[[lastEntry]]$match_id
     matchRESTURL <- sprintf("https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?account_id=%s&key=%s&start_at_match_id=%s",
-                            "67723037", apiKey, lastMatchId)
+                            accountId, apiKey, lastMatchId)
     # print(paste0("Searching ", matchRESTURL))
     JSONResult <- GET(matchRESTURL)
     resultList <- httr::content(JSONResult)
